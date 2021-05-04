@@ -41,7 +41,7 @@ class Pagina2Page extends StatelessWidget {
               child: Text('Añadir Profesion', style: TextStyle( color: Colors.white ) ),
               color: Colors.blue,
               onPressed: () {
-
+                usuarioCtrl.agregarProfesion('Profesion ${usuarioCtrl.profesionesCount + 1}');
               }
             ),
 
