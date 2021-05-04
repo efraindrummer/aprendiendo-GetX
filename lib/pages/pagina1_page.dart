@@ -1,3 +1,4 @@
+import 'package:estados/controllers/usuario_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,12 +7,18 @@ class Pagina1Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final usuarioCtrl = Get.put(UsuarioController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Pagina 1'),
       ),
-      body: InformacionUsuario(),
-
+      body: Obx( 
+        () => usuarioCtrl.existeUsuario.value
+          ? InformacionUsuario()
+          : NoInfo()
+      ),
      floatingActionButton: FloatingActionButton(
        child: Icon( Icons.accessibility_new ),
        //onPressed: () => Navigator.pushNamed(context, 'pagina2')
@@ -19,6 +26,18 @@ class Pagina1Page extends StatelessWidget {
           'nombre': 'Efrain',
           'edad': 22
         })
+      ),
+    );
+  }
+}
+
+class NoInfo extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text("No hay usuario seleccionado"),
       ),
     );
   }

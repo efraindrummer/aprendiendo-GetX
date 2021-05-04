@@ -1,3 +1,5 @@
+import 'package:estados/controllers/usuario_controller.dart';
+import 'package:estados/models/usuario.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,7 +9,8 @@ class Pagina2Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    print(Get.arguments);
+    //print(Get.arguments['edad']);
+    final usuarioCtrl = Get.find<UsuarioController>();
 
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +25,7 @@ class Pagina2Page extends StatelessWidget {
               child: Text('Establecer Usuario', style: TextStyle( color: Colors.white ) ),
               color: Colors.blue,
               onPressed: () {
-
+                usuarioCtrl.cargarUsuario(Usuario(nombre: 'Efrain', edad: 22));
               }
             ),
 
