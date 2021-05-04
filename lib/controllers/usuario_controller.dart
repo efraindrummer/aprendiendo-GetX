@@ -13,4 +13,10 @@ class UsuarioController extends GetxController {
     this.usuario.value = pUsuario;
   }
 
+  void cambiarEdad(int edad){
+    this.usuario.update((val) {
+      val!.edad = edad;
+    });
+  }
+
 }

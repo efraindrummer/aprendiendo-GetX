@@ -33,7 +33,7 @@ class Pagina2Page extends StatelessWidget {
               child: Text('Cambiar Edad', style: TextStyle( color: Colors.white ) ),
               color: Colors.blue,
               onPressed: () {
-
+                usuarioCtrl.cambiarEdad(25);
               }
             ),
 
